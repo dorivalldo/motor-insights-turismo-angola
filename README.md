@@ -123,3 +123,109 @@ Gunter, U., & Önder, I. (2022). Forecasting tourism demand with machine learnin
 Hu, Y., & Song, H. (2023). Smart tourism governance and data-driven decision making. Journal of Sustainable Tourism, 31(4), 621–640. 
 World Bank. (2023). International tourism, number of arrivals (Angola). World Development Indicators. 
 UNDP. (2022). Digital transformation for sustainable development: Policy guidance for Africa. New York: United Nations Development Programme.
+
+# 🌍 Motor Insights Turismo Angola — Documentação de Ferramentas e Decisões Técnicas
+
+## 🧩 Ferramentas e Tecnologias Adicionais
+
+Durante a expansão do projeto **Motor Insights Turismo Angola**, novas ferramentas e bibliotecas foram integradas para fortalecer a estrutura do Dashboard e otimizar o desempenho, a usabilidade e a visualização dos dados.
+
+Estas ferramentas não estavam previstas na versão inicial, mas foram adicionadas com base em necessidades técnicas identificadas durante o desenvolvimento.
+
+### 🧠 Frameworks e Bibliotecas Adicionadas
+
+| Ferramenta | Função | Motivo da Escolha |
+|-------------|---------|-------------------|
+| **Django** | Backend robusto para gestão de APIs e autenticação | Necessário para suportar múltiplos módulos, utilizadores e segurança avançada, além de fácil integração com IA em Python |
+| **Django REST Framework (DRF)** | Criação de endpoints REST para fornecer dados ao frontend | Permite separar o backend da interface e possibilita integração com futuros aplicativos móveis |
+| **TailwindCSS** | Framework CSS moderno e leve | Tornou o layout responsivo e mais fácil de manter, com design sustentável e compatível com dark mode |
+| **Chart.js** | Visualização de dados estatísticos e preditivos | Leve, interativo e ideal para dashboards web; mais simples de integrar que Plotly no frontend puro |
+| **Leaflet.js** | Mapa interativo de Angola e indicadores regionais | Escolhido pela sua leveza, open-source e facilidade de integração com GeoJSON; ideal para destacar indicadores sustentáveis por província |
+| **WeasyPrint** | Geração de relatórios PDF | Suporta HTML/CSS, permitindo converter o dashboard e análises em relatórios prontos para impressão e partilha institucional |
+| **Prophet e Scikit-learn** | Modelos de previsão de visitantes e sustentabilidade | Usados para construir previsões temporais rápidas e precisas, alinhadas com a visão de IA aplicada ao turismo |
+| **Whitenoise + Gunicorn** | Deploy e entrega estática eficiente | Garantem desempenho otimizado no servidor e simplificam o processo de deploy em serviços cloud como Render ou Railway |
+
+### 💡 Justificativa geral
+
+O uso dessas ferramentas foi guiado por três fatores principais:
+1. **Sustentabilidade técnica:** foco em código limpo, leve e escalável.  
+2. **Interoperabilidade:** permitir que a plataforma se integre a APIs, dashboards externos e bases de dados.  
+3. **Inovação e usabilidade:** entregar uma experiência moderna e interativa, acessível a gestores, turistas e analistas.
+
+---
+
+## 🔍 Evolução da Arquitetura
+
+A versão inicial do projeto tinha foco em notebooks de Machine Learning e geração de relatórios técnicos.
+
+Com a nova arquitetura:
+- **Frontend** passou a ser modular (HTML + Tailwind + Chart.js + Leaflet);
+- **Backend** tornou-se mais inteligente, com Django/DRF e modelos de IA integrados;
+- **APIs** foram estruturadas para comunicação fluida entre as camadas;
+- **Relatórios PDF e previsões automáticas** passaram a ser gerados dinamicamente.
+
+Essa mudança foi necessária para transformar o protótipo em uma **plataforma completa de insights turísticos sustentáveis**.
+
+# 🏗️ Arquitetura Atualizada do Projeto — Motor Insights Turismo Angola
+
+O projeto **Motor Insights Turismo Angola** evoluiu de um conjunto de notebooks de análise e previsões para um **ecossistema integrado** de análise, visualização e gestão de dados de turismo sustentável.
+
+## ⚙️ Camadas Principais
+
+### Backend (Núcleo Analítico)
+- Framework: **Django** + **Django REST Framework**
+- Módulos:
+  - `core/` → lógica de IA, previsão e indicadores de sustentabilidade
+  - `api/` → endpoints REST para o frontend
+  - `ml_engine.py` → motor de predição (Prophet, Scikit-learn)
+- Razão: necessário para permitir integração com múltiplos frontends e usuários autenticados, com segurança e escalabilidade.
+
+### Frontend (Dashboard Interativo)
+- Framework: **HTML + TailwindCSS + Chart.js + Leaflet**
+- Funções:
+  - Dashboard principal com KPIs, gráficos e mapa de Angola.
+  - Visualização de previsões e tendências sustentáveis.
+- Razão: arquitetura modular permite manutenção independente e personalização de cada módulo.
+
+### Relatórios e Exportações
+- Biblioteca: **WeasyPrint**
+- Permite gerar relatórios PDF com design responsivo, exportando gráficos e métricas diretamente da interface.
+
+### Inteligência Artificial
+- Frameworks: **Prophet** e **Scikit-learn**
+- Uso: previsão de visitantes, desempenho de sustentabilidade e impacto ambiental.
+- Razão: ferramentas maduras, com alta precisão e fácil integração com Django.
+
+## 📈 Fluxo de Dados
+
+[Dataset CSV / API Externa]
+        ↓
+     ML Engine (Prophet / Sklearn)
+        ↓
+     Django REST API
+        ↓
+     Frontend (Chart.js / Leaflet)
+        ↓
+   Exportação (WeasyPrint PDF)
+
+---
+
+## 🔎 Decisão de Adotar Novas Ferramentas
+
+| Necessidade | Solução Adotada | Benefício |
+|--------------|----------------|------------|
+| Melhorar visual e usabilidade | TailwindCSS | Layout moderno e acessível |
+| Mapa interativo por província | Leaflet.js | Leve e totalmente open source |
+| Backend robusto com autenticação | Django | Segurança e escalabilidade |
+| Geração de relatórios automáticos | WeasyPrint | Exportação profissional de insights |
+| Previsões mais estáveis | Prophet / Sklearn | Modelos de IA facilmente atualizáveis |
+
+---
+
+## 🌍 Sustentabilidade do Código
+
+As novas ferramentas seguem o princípio de **sustentabilidade digital**:
+- Baixo consumo de recursos;
+- Código reutilizável e bem documentado;
+- Compatibilidade com ambientes open-source e de baixo custo (Render, Railway, etc.);
+- Alinhamento com os **Objetivos de Desenvolvimento Sustentável (ODS)** na dimensão tecnológica.
